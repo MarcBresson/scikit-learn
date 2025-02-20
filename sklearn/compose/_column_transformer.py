@@ -885,6 +885,7 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
                     if trans == "passthrough":
                         output_config = _get_output_config("transform", self)
                         trans = FunctionTransformer(
+                            inverse_func=lambda X: X,
                             accept_sparse=True,
                             check_inverse=False,
                             feature_names_out="one-to-one",
